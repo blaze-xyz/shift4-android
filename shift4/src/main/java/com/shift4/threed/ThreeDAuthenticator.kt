@@ -10,7 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-internal class ThreeDAuthenticator(
+public class ThreeDAuthenticator(
     private val repository: SDKRepository,
     private val signature: String,
     private val packageName: String,
