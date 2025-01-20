@@ -1,0 +1,18 @@
+{
+  "name": "shift4-android",
+  "version": "1.2.1",
+  "description": "Android SDK for Shift4. Library allows you to easily add Shift4 payments to your mobile apps.",
+  "homepage": "https://github.com/shift4developer/shift4-android.git",
+  "license": "MIT",
+  "author": "shift4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shift4developer/shift4-android.git"
+  },
+  "keywords": [
+    "shift4",
+    "android",
+    "sdk",
+    "payments"
+  ]
+}
