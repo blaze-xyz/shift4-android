@@ -2,7 +2,7 @@ package com.shift4.data.model.threeD
 
 import com.google.gson.annotations.SerializedName
 
-internal data class ThreeDCheckRequest(
+public data class ThreeDCheckRequest(
     @SerializedName("amount")
     val amount: Int,
     @SerializedName("currency")

@@ -1,5 +1,5 @@
 package com.shift4.data.model.error
 
-internal interface APIErrorConvertible {
+public interface APIErrorConvertible {
     fun toAPIError(): APIError
 }

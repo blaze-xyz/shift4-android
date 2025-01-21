@@ -58,12 +58,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = '17'
     }
 
     kotlin {
@@ -122,53 +122,23 @@ android {
 }
 
 publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.shift4'
-            artifactId = 'shift4-android'
-            version = rootProject.version
-
-            pom {
-                name = 'Shift4 Android SDK'
-                description = 'Android client library for Shift4'
-                url = 'https://dev.shift4.com/'
-                licenses {
-                    license {
-                        name = 'MIT license'
-                        url = 'http://opensource.org/licenses/MIT'
-                    }
-                }
-                developers {
-                    developer {
-                        name = 'Shift4'
-                        email = 'devsupport@shift4.com'
-                    }
-                }
-                scm {
-                    connection = 'scm:git:git@github.com:shift4developer/shift4-android.git'
-                    developerConnection = 'scm:git:git@github.com:shift4developer/shift4-android.git'
-                    url = 'https://github.com/shift4developer/shift4-android.git'
-                }
-            }
-
-            afterEvaluate {
-                from components.release
-            }
-        }
-
-    }
     repositories {
         maven {
-            name = 'myrepo'
-            url = "${project.buildDir}/repo"
-        }
-        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/blaze-xyz/shift4-android")
             credentials {
-                username = findProperty('deploy.ossrhUsername')
-                password = findProperty('deploy.ossrhPassword')
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
             }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            groupId = 'com.shift4'
+            artifactId = 'shift4-android'
+            version = '1.2.1'
 
-            url 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+            from components.release
         }
     }
 }

@@ -8,7 +8,7 @@ import com.shift4.data.model.lookup.Card
 import com.shift4.utils.empty
 import com.shift4.utils.sanitized
 
-internal class CreditCard(
+public class CreditCard(
     @SerializedName("type")
     val type: Type,
     @SerializedName("number")
@@ -169,7 +169,7 @@ internal class CreditCard(
         }
 }
 
-internal data class ValidationRegex(
+public data class ValidationRegex(
     val type: CreditCard.Type,
     val prefix: IntRange,
     val patterns: List<IntRange>
@@ -179,7 +179,7 @@ internal data class ValidationRegex(
     }
 }
 
-internal fun CreditCard.Type.validationRegex(): ValidationRegex {
+public fun CreditCard.Type.validationRegex(): ValidationRegex {
     return when (this) {
         CreditCard.Type.VISA -> ValidationRegex(CreditCard.Type.VISA, 1..1, listOf(4..4))
         CreditCard.Type.MASTERCARD -> ValidationRegex(
@@ -212,7 +212,7 @@ internal fun CreditCard.Type.validationRegex(): ValidationRegex {
     }
 }
 
-internal fun CreditCard.Type.Companion.cardTypeForCreditCardNumber(cardNumber: String?): CreditCard.Type {
+public fun CreditCard.Type.Companion.cardTypeForCreditCardNumber(cardNumber: String?): CreditCard.Type {
     CreditCard.Type.values().forEach { type ->
         type.validationRegex().prefix.forEach {
             val prefix: Int? = cardNumber?.sanitized?.take(it)?.toIntOrNull()

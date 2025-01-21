@@ -2,7 +2,7 @@ package com.shift4.data.model.lookup
 
 import com.google.gson.annotations.SerializedName
 
-internal data class Card(
+public data class Card(
     @SerializedName("last2")
     val last2: String?,
     @SerializedName("last4")

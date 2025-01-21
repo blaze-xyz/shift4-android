@@ -2,7 +2,7 @@ package com.shift4.data.model.pay
 
 import com.google.gson.annotations.SerializedName
 
-internal data class CheckoutRequestContent(
+public data class CheckoutRequestContent(
     @SerializedName("charge")
     val charge: Charge?,
     @SerializedName("customCharge")

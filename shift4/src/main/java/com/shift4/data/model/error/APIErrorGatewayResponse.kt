@@ -3,7 +3,7 @@ package com.shift4.data.model.error
 import com.google.gson.annotations.SerializedName
 import com.shift4.utils.empty
 
-internal data class APIErrorGatewayResponse(
+public data class APIErrorGatewayResponse(
     @SerializedName("error") private val error: String,
     @SerializedName("errorMessage") private val message: String?
 ): APIErrorConvertible {

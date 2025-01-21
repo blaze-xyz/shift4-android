@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.text.NumberFormat
 import java.util.*
 
-internal data class Subscription(
+public data class Subscription(
     @SerializedName("plan")
     val plan: SubscriptionPlan
 ) {

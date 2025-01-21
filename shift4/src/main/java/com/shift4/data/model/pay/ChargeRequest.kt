@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import com.shift4.data.model.address.Billing
 import com.shift4.data.model.address.Shipping
 
-internal data class ChargeRequest(
+public data class ChargeRequest(
     @SerializedName("key")
     val key: String,
     @SerializedName("tokenId")

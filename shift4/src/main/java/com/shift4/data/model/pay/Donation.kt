@@ -3,7 +3,7 @@ package com.shift4.data.model.pay
 import com.google.gson.annotations.SerializedName
 import com.shift4.utils.CurrencyFormatter
 
-internal data class Donation(
+public data class Donation(
     @SerializedName("amount")
     val amount: Int,
     @SerializedName("currency")

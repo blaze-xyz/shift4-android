@@ -2,7 +2,7 @@ package com.shift4.data.model.error
 
 import com.google.gson.annotations.SerializedName
 
-internal class APIErrorResponse(@SerializedName("error") private val error: Error) : APIErrorConvertible {
+public class APIErrorResponse(@SerializedName("error") private val error: Error) : APIErrorConvertible {
     class Error(type: APIError.Type = APIError.Type.Unknown, code: APIError.Code = APIError.Code.Unknown, message: String = "") {
         val type: APIError.Type? = APIError.Type.Unknown
         val code: APIError.Code? = APIError.Code.Unknown

@@ -2,7 +2,7 @@ package com.shift4.data.model.address
 
 import com.google.gson.annotations.SerializedName
 
-internal data class Address(
+public data class Address(
     @SerializedName("line1")
     val line1: String,
     @SerializedName("zip")

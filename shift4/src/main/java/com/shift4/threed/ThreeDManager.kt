@@ -17,7 +17,7 @@ import com.shift4.threedsecure.pub.ThreeDS2Service
 import com.shift4.threedsecure.pub.Warning
 import java.util.*
 
-internal class ThreeDManager : ChallengeStatusReceiver {
+public class ThreeDManager : ChallengeStatusReceiver {
     private var activity: Activity? = null
     private var threeDService = ThreeDS2Service()
     private var sdkTransaction: Transaction? = null

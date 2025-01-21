@@ -25,7 +25,7 @@ import com.shift4.data.model.token.TokenRequest
 import com.shift4.utils.UserAgentGenerator
 import com.shift4.utils.base64
 
-internal class SDKRepository(private val shift4: Shift4) {
+public class SDKRepository(private val shift4: Shift4) {
     private val responseHandler = ResponseHandler()
 
     suspend fun createToken(tokenRequest: TokenRequest): Result<Token> {

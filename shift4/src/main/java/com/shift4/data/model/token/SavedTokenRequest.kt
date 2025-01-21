@@ -2,7 +2,7 @@ package com.shift4.data.model.token
 
 import com.google.gson.annotations.SerializedName
 
-internal data class SavedTokenRequest(
+public data class SavedTokenRequest(
     @SerializedName("key")
     private val key: String,
     @SerializedName("email")

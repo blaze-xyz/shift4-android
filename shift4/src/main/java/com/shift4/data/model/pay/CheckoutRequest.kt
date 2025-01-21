@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 import com.shift4.utils.CurrencyFormatter
 import java.util.*
 
-data class CheckoutRequest(@SerializedName("content") internal val content: String) {
-    internal val correct: Boolean
+data class CheckoutRequest(@SerializedName("content") public val content: String) {
+    public val correct: Boolean
         get() {
             return try {
                 checkoutRequestContent
@@ -16,17 +16,17 @@ data class CheckoutRequest(@SerializedName("content") internal val content: Stri
             }
         }
 
-    internal val amount: Int
+    public val amount: Int
         get() {
             return checkoutRequestContent.charge?.amount ?: 0
         }
 
-    internal val currency: String
+    public val currency: String
         get() {
             return checkoutRequestContent.charge?.currency ?: checkoutRequestContent.customCharge?.currency ?: ""
         }
 
-    internal val readable: String
+    public val readable: String
         get() {
             val amount = checkoutRequestContent.charge?.amount ?: return ""
             val currency = checkoutRequestContent.charge?.currency ?: return ""
@@ -37,27 +37,27 @@ data class CheckoutRequest(@SerializedName("content") internal val content: Stri
             )
         }
 
-    internal val rememberMe: Boolean
+    public val rememberMe: Boolean
         get() {
             return checkoutRequestContent.rememberMe ?: false
         }
 
-    internal val termsAndConditions: String?
+    public val termsAndConditions: String?
         get() {
             return checkoutRequestContent.termsAndConditionsUrl
         }
 
-    internal val customerId: String?
+    public val customerId: String?
         get() {
             return checkoutRequestContent.customerId
         }
 
-    internal val crossSaleOfferIds: Array<String>?
+    public val crossSaleOfferIds: Array<String>?
         get() {
             return checkoutRequestContent.crossSaleOfferIds
         }
 
-    internal val donations: List<Donation>?
+    public val donations: List<Donation>?
         get() {
             if (checkoutRequestContent.customCharge?.amountOptions?.isEmpty() != false) {
                 return null
@@ -67,29 +67,29 @@ data class CheckoutRequest(@SerializedName("content") internal val content: Stri
             }
         }
 
-    internal val customDonation: Pair<Int, Int>?
+    public val customDonation: Pair<Int, Int>?
         get() {
             val min = checkoutRequestContent.customCharge?.customAmount?.min ?: return null
             val max = checkoutRequestContent.customCharge?.customAmount?.max ?: return null
             return Pair(min, max)
         }
 
-    internal val threeDSecure: Boolean
+    public val threeDSecure: Boolean
         get() {
             return checkoutRequestContent.threeDSecure?.enable ?: false
         }
 
-    internal val requireEnrolledCard: Boolean
+    public val requireEnrolledCard: Boolean
         get() {
             return checkoutRequestContent.threeDSecure?.requireEnrolledCard ?: false
         }
 
-    internal val requireSuccessfulLiabilityShiftForEnrolledCard: Boolean
+    public val requireSuccessfulLiabilityShiftForEnrolledCard: Boolean
         get() {
             return checkoutRequestContent.threeDSecure?.requireSuccessfulLiabilityShiftForEnrolledCard ?: false
         }
 
-    internal val subscriptionPlanId: String?
+    public val subscriptionPlanId: String?
         get() {
             return checkoutRequestContent.subscription?.planId
         }
