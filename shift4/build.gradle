@@ -58,12 +58,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = '11'
     }
 
     kotlin {
@@ -137,8 +137,6 @@ publishing {
             groupId = 'com.shift4'
             artifactId = 'shift4-android'
             version = '1.2.1'
-
-            from components.release
         }
     }
 }
@@ -148,7 +146,7 @@ signing {
     def signingPassword = findProperty("signing.signingPassword")
     useInMemoryPgpKeys(signingKey, signingPassword)
 
-    sign publishing.publications.release
+    sign publishing.publications.gpr
 }
 
 
